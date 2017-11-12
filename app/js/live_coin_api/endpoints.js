@@ -1,0 +1,18 @@
+module.exports = {
+  API_ENDPOINT: "https://api.livecoin.net",
+  TICKER_ENDPOINT: "/exchange/ticker",
+  LAST_TRADES_ENDPOINT: "/exchange/last_trades",
+  COIN_INFO_ENDPOINT: "/info/coinInfo",
+  TRADES_ENDPOINT: "/exchange/trades",
+  CLIENT_ORDERS_ENDPOINT: "/exchange/client_orders",
+  ORDER_ENDPOINT: "/exchange/order",
+  GET_ADDRESS_ENDPOINT: "/payment/get/address",
+  BALANCES_ENDPOINT: "/payment/balances",
+  TRANSACTIONS_ENDPOINT: "/payment/history/transactions",
+  WITHDRAWAL_ENDPOINT: "/payment/out/coin",
+  SELL_MARKET_ENDPOINT: "/exchange/sellmarket",
+  BUY_MARKET_ENDPOINT: "/exchange/buymarket",
+  BUY_LIMIT_ENDPOINT: "/exchange/buylimit",
+  SELL_LIMIT_ENDPOINT: "/exchange/selllimit",
+  CANCEL_LIMIT_ENDPOINT: "/exchange/cancellimit",
+}

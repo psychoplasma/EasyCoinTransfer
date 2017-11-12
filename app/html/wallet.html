@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>My Wallet</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<link rel="stylesheet" href="./../../node_modules/bootstrap/dist/css/bootstrap.min.css" />
+
+		<style>
+			body {
+				display: flex;
+			}
+
+			.content {
+				flex: 1;
+				flex-direction: column;
+				justify-content: center;
+			  position: relative;
+			  margin: auto;
+			  padding: 2rem;
+			  border: 1px solid hsla(0,0%,0%,.08);
+			  border-radius: 5px;
+			  background-color: hsla(0,0%,0%,.06);
+			}
+		</style>
+
+	</head>
+	<body>
+		<div class="content">
+			<form>
+			 <div class="form-group">
+				 <label for="text">Choose Currency: </label>
+				 <select id="coin" class="row-sm-4">
+					 <option value="btc_krw">BTC</option>
+					 <option value="eth_krw">ETH</option>
+					 <option value="etc_krw">ETC</option>
+					 <option value="xrp_krw">XRP</option>
+				</select>
+			 </div>
+			</form>
+
+			<div>
+			 <label for="time">Last update: <label/>
+			 <p id="time">--:--:--</p>
+			</div>
+
+			<div>
+			 <label for="price">Last price: <label/>
+			 <p id="price">---.-</p>
+			</div>
+
+			<br/>
+			<button id="submit" class="btn btn-primary btn-block">Submit</button>
+		</div>
+
+		<script type="text/javascript" src="./../js/wallet.js"></script>
+	</body>
+</html>

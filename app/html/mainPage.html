@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Easy Coin Transfer</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<link rel="stylesheet" href="./../../node_modules/bootstrap/dist/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="./../css/nav.css"/>
+		<link rel="stylesheet" href="./../css/global.css"/>
+		<link rel="stylesheet" href="./../css/section.css"/>
+		<link rel="stylesheet" href="./../css/nativize.css"/>
+		<link rel="stylesheet" href="./../css/variables.css"/>
+		<link rel="stylesheet" href="./../css/navigationBar.css"/>
+		<link rel="stylesheet" href="./../css/tabs.css"/>
+	<!--  	<link rel="import" href="./nav/liveCoinWallet.html"> -->
+		<link rel="import" href="./nav/korbitWallet.html">
+	<!--	<link rel="import" href="./nav/settings.html"> -->
+		<link rel="import" href="./tabs/withdrawal.html">
+		<link rel="import" href="./tabs/market.html">
+		<link rel="import" href="./tabs/trades.html">
+		<link rel="import" href="./tabs/history.html">
+		<script src="./../../node_modules/jquery/dist/jquery.min.js"></script>
+
+	</head>
+
+	<body>
+		<nav class="nav-left">
+			<header class="nav-header">
+				<h3 class="nav-title">
+					<strong>Easy</strong>CoinTransfer
+				</h3>
+			</header>
+
+			<div class="nav-item-group">
+<!--
+				<div class="nav-item u-category-kairos-bit" data-section="kairos-bit-wallet">
+					<img class="nav-icon" src="./../images/kairosbit_wallet.png">
+				</div>
+-->
+<!--				<div class="nav-item u-category-live-coin" data-section="live-coin-wallet">
+					<img class="nav-icon" src="./../images/livecoin_wallet.png">
+				</div>
+-->
+				<div class="nav-item u-category-korbit" data-section="korbit-wallet">
+					<img class="nav-icon" src="./../images/korbit_wallet.png">
+				</div>
+
+<!--
+				<div class="nav-item u-category-settings" data-section="settings">
+					<span>
+						<img class="nav-icon-with-text" src="./../images/settings.png">
+						<b>Settings</b>
+					</span>
+				</div>
+ -->
+			</div>
+
+			<footer class="nav-footer"></footer>
+		</nav>
+
+		<main class="content">
+		</main>
+
+		<script>
+			require('./../js/imports.js')
+			require('./../js/nav.js')
+			require('./../js/sections/nav_tab.js')
+	  </script>
+
+	</body>
+</html>

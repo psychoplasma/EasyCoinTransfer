@@ -1,0 +1,94 @@
+body {
+}
+
+.nav-left {
+  height:100vh;
+  width: 40%;
+  max-width: 340px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  color: rgb(112, 112, 112);
+  border-right: 1px solid hsla(0,0%,0%,.08);
+  background-color: rgb(245, 245, 245);
+  flex-direction: column;
+}
+
+.nav-left::-webkit-scrollbar {
+  width: 12px;
+  margin-right: 0.2rem;
+}
+.nav-left::-webkit-scrollbar-button:single-button {
+  background-color: rgb(138, 138, 138);
+}
+.nav-left::-webkit-scrollbar-track {
+  background-color: rgb(238, 238, 238);
+}
+.nav-left::-webkit-scrollbar-thumb {
+  margin-right: 0.2rem;
+  background-color: rgb(138, 138, 138);
+}
+
+.nav-title {
+  padding: .5em 0;
+}
+
+.nav-item:hover {
+  background-color: hsla(0,0%,0%,.12);
+  color: inherit;
+}
+
+.nav-item:active {
+  background-color: hsla(0,0%,0%,.2);
+}
+
+.nav-item.is-selected {
+  background-color: var(--color-primary);
+  color: white;
+}
+
+.nav-item-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 10px;
+  min-height: 120px;
+  padding-left: calc(2rem + 16px + .5rem);
+  background-color: hsla(0,0%,0%,.08);
+}
+
+.nav-icon {
+  height: auto;
+  max-width: 160px;
+}
+
+.nav-icon-with-text {
+  max-width: 44px;
+  height: auto;
+  margin-right: 2rem;
+}
+
+.nav-item-text {
+  font-size: 16px;
+}
+
+.nav-header {
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid hsla(0,0%,0%,.08);
+  text-align: center;
+  align-self: flex-start;
+}
+
+.nav-footer {
+  max-height: 50px;
+  margin-top: 1rem;
+  padding: 2rem;
+  border-top: 1px solid hsla(0,0%,0%,.08);
+  text-align: center;
+  align-self: center;
+}

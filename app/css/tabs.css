@@ -1,0 +1,133 @@
+.tab-content-header {
+	text-align: center;
+}
+
+.tab-content-header-important {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	max-width: 100%;
+	background-color: var(--color-primary);
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	padding: 1rem;
+}
+
+.withdrawal-form-container {
+	background-color: white;
+	border-radius: 20px;
+	border-style: solid;
+	border-color: var(--color-primary);
+	border-width: 2px;
+	padding: 1rem;
+}
+
+.subtitle {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: center;
+	text-align: center;
+}
+
+.subtitle pre {
+	margin: 0 0 0 1rem;
+}
+
+.subtitle-btn {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	text-align: center;
+}
+
+.currencies {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	text-align: center;
+}
+
+.currencies h5 {
+	margin: 0
+}
+
+.refresh-btn {
+	width: 24px;
+	height: 24px;
+	border-radius: 12px;
+	border-width: 1px;
+	border-style: solid;
+	border-color: var(--color-accent);
+	margin-right: 1rem;
+}
+
+.refresh-btn:hover {
+	background-color: var(--color-accent-light);
+}
+
+.refresh-btn:active {
+	background-color: var(--color-primary);
+	animation: spin 1s linear;
+}
+
+.refresh-btn img {
+	width: 18px;
+	height: auto;
+}
+
+@keyframes spin { 100% {transform:rotate(360deg);} }
+
+.transactions-form-container {
+	background-color: white;
+	border-radius: 20px;
+	border-style: solid;
+	border-color: var(--color-primary);
+	border-width: 2px;
+	padding: 2rem;
+}
+
+.transaction-table {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+.transaction-table th, td {
+    padding: 10px;
+		color: var(--color-table-text);
+		font-size: 11px;
+		text-align: center;
+}
+
+.transaction-table th {
+	font-size: 14px;
+	background-color: var(--color-primary);
+  color: white;
+}
+
+.transaction-table tr {
+	border: .5px solid var(--color-border);
+}
+
+.transaction-table tr:nth-child(even) {
+	background-color: var(--color-bg);
+}
+
+.form-container-buy-sell {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+	background-color: white;
+	border-radius: 20px;
+	border-style: solid;
+	border-color: var(--color-primary);
+	border-width: 2px;
+	padding: 1rem;
+}
+
+.container-trade {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}

@@ -1,0 +1,31 @@
+
+/* Custom Properties */
+
+:root {
+  --color:          hsl(0,0%,22%);
+  --color-subtle:   hsl(0,0%,44%);
+  --color-strong:   hsl(0,0%,11%);
+  --color-link:     hsl(0,0%,22%);
+
+  --color-table-text:   hsl(0,0%,25%);
+  --color-border:   hsl(0,0%,88%);
+  --color-bg:       hsl(0,0%,96%);
+  --color-bg-dark: #171837;
+
+  --color-primary:  		black; /* Fallback */
+  --color-primary-dark:  	black; /* Fallback */
+  --color-accent:   		black; /* Fallback */
+  --color-accent-light:     gray;
+}
+
+
+/* Category Colors */
+
+.u-category-kairos-bit 		{ --color-accent: hsl(145, 76%, 86%); --color-accent-light: hsl(194, 60%, 45%); --color-primary: hsl(194, 60%, 36%); --color-primary-dark: hsl(116, 30%, 36%);}
+.u-category-live-coin    	{ --color-accent: hsl(145, 76%, 86%); --color-accent-light: hsl(194, 60%, 45%); --color-primary: hsl(194, 60%, 36%);}
+.u-category-korbit      	{ --color-accent: hsl(145, 76%, 86%); --color-accent-light: hsl(194, 60%, 45%); --color-primary: hsl(194, 60%, 36%);}
+.u-category-settings     	{ --color-accent: hsl(285, 47%, 46%); --color-primary: hsl(194, 60%, 36%);}
+
+.u-category-communication 	{ --color-accent: hsl(285, 47%, 46%); }
+.u-category-system        	{ --color-accent: hsl(330, 65%, 48%); }
+.u-category-media      		{ --color-accent: hsl( 36, 77%, 34%); }

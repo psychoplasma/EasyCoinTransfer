@@ -1,0 +1,60 @@
+<template class="sub-task-template">
+  <section id="withdrawal" class="nav-tab-content">
+
+    <div class="tab-content-header-important">
+      <div class="subtitle">
+          <h5>귀하의 BTC 주소:</h5>
+          <pre id="btc_address"></pre>
+      </div>
+
+      <div class="subtitle-btn">
+          <div id="withdrawal-refresh-button" class="refresh-btn">
+            <img src="./../images/refresh_icon.png"></img>
+          </div>
+          <h4>฿&nbsp;</h4>
+          <div class="currencies">
+            <h4><samp id="withdrawal-btc-rate-usd">0.000&nbsp;USD</samp></h4>
+          </div>
+      </div>
+    </div>
+
+    <div class="tab-content-header">
+      <h3>BTC 출금</h3>
+      <p>다른 BTC 주소로 BTC 보내기</p>
+    </div>
+
+    <br/>
+
+    <div class="row">
+      <div class="col-xs-1"></div>
+      <div class="col-xs-10 withdrawal-form-container">
+          <div class="form-group">
+            <label for="withdrawal-address">출금 주소</label>
+            <div class="input-group">
+              <span class="input-group-addon"><i class="glyphicon glyphicon-credit-card"></i></span>
+              <input id="withdrawal-address" type="text" class="form-control" placeholder="BTC를 보내려는 지갑 주소를 입력하십시오">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="withdrawal-amount">BTC 송금액</label>
+            <div class="input-group">
+              <span class="input-group-addon"><i class="glyphicon glyphicon-bitcoin"></i></span>
+              <input id="withdrawal-amount" type="number" step="0.0001" class="form-control" placeholder="BTC 금액를 입력하십시오">
+            </div>
+          </div>
+
+          <br/>
+
+          <div class="form-group">
+            <button id="withdrawal-submit" type="button" class="btn btn-primary btn-block">BTC 보내기</button>
+          </div>
+      </div>
+      <div class="col-xs-1"></div>
+    </div>
+
+    <script>
+      //require('../js/sections/live_coin_withdrawal.js')
+    </script>
+  </section>
+</template>

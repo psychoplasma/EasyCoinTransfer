@@ -1,0 +1,145 @@
+<template class="sub-task-template">
+  <section id="trades" class="container nav-tab-content">
+
+    <div class="tab-content-header">
+      <h3>Trade</h3>
+      <p>Put Orders in Market</p>
+    </div>
+
+    <br/>
+
+    <div class="container-trade">
+      <div class="row">
+        <div class="col-xs-1"></div>
+        <div class="col-xs-5">
+            <div class="form-container-buy-sell">
+              <form>
+                <div class="form-group">
+                  <label>Sell On Market</label>
+                </div>
+                <div class="form-group">
+                    <label for="quantity-sell">지출액</label>
+                    <input id="quantity-sell" type="number" step="0.0001" class="form-control" placeholder="금액를 입력하십시오"/>
+                </div>
+                <div class="form-group">
+                  <button id="submit-sell" type="button" class="btn btn-danger btn-block">매수</button>
+                </div>
+              </form>
+            </div>
+        </div>
+        <div class="col-xs-5">
+            <div class="form-container-buy-sell">
+              <form>
+                <div class="form-group">
+                  <label>Buy On Market</label>
+                </div>
+
+                <div class="form-group">
+                    <label for="quantity-buy">매도량</label>
+                    <input id="quantity-buy" type="number" step="0.0001" class="form-control" placeholder="금액를 입력하십시오"/>
+                </div>
+
+                <div class="form-group">
+                  <button id="submit-buy" type="button" class="btn btn-primary btn-block">매도</button>
+                </div>
+              </form>
+            </div>
+        </div>
+        <div class="col-xs-1"></div>
+      </div>
+      <br/><br/>
+      <div class="row">
+        <div class="col-xs-1"></div>
+        <div class="col-xs-10">
+          <label for="table-recent-orders">미체결주문</label>
+          <div class="form-group">
+              <table id="table-recent-orders" class="transaction-table">
+                <thead>
+                  <tr>
+                    <th>주문 ID</th>
+                    <th>주문</th>
+                    <th>주문시각</th>
+                    <th>주문량</th>
+                    <th>주문가</th>
+                    <th>상태</th>
+                  </tr>
+                </thead>
+                <tbody>
+                </tbody>
+              </table>
+          </div>
+          <div class="form-group unvisible-content">
+              <div class="input-group">
+                <input type="text" class="form-control"/>
+                <div class="input-group-btn">
+                  <button class="btn btn-default">
+                  </button>
+                </div>
+              </div>
+            </div>
+        </div>
+        <div class="col-xs-1"></div>
+      </div>
+      <br/>
+      <div class="tab-content-header">
+        <h3>Trading Bot</h3>
+        <p>Enter your profit percentage and your capital amount for auto trading.</p>
+      </div>
+      <br/>
+      <div class="row">
+        <div class="col-xs-1"></div>
+        <div class="col-xs-10">
+            <div class="form-group">
+                <label for="auto-buy-sell-start-quantity">코인</label>
+                <select class="form-control" id="currency">
+                    <option>BTC</option>
+                    <option>BCH</option>
+                    <option>ETH</option>
+                    <option>ETC</option>
+                    <option>XRP</option>
+                </select>
+            </div>
+            <div class="form-group">
+              <label for="auto-buy-sell-start-quantity">금액</label>
+              <input id="auto-buy-sell-start-quantity" type="number" step="0.0001" class="form-control" placeholder="금액를 입력하십시오"/>
+            </div>
+            <div class="form-group">
+              <label for="auto-buy-sell-start-margin">이익 비율</label>
+              <input id="auto-buy-sell-start-margin" type="number" step="0.0001" class="form-control" placeholder="이익 비율을 입력하십시오"/>
+            </div>
+            <div class="form-group">
+                <label for="algorithm">알고리즘</label>
+                <select class="form-control" id="algorithm">
+                    <option>Algorithm-1</option>
+                    <option>Algorithm-2</option>
+                </select>
+            </div>
+            <br/><br/>
+          <div class="form-group">
+            <button id="auto-buy-sell-start" type="button" class="btn btn-primary btn-block">Trading Bot 시작</button>
+          </div>
+          <div class="form-group">
+            <button id="auto-buy-sell-stop" type="button" class="btn btn-danger btn-block" disabled="true">Trading Bot 정지</button>
+          </div>
+          <div class="form-group unvisible-content">
+              <div class="input-group">
+                <input type="text" class="form-control"/>
+                <div class="input-group-btn">
+                  <button class="btn btn-default">
+                  </button>
+                </div>
+              </div>
+            </div>
+        </div>
+        <div class="col-xs-1"></div>
+      </div>
+    </div>
+
+    <script>
+      //require('../js/sections/live_coin_trades.js')
+      //require('../js/live_coin_api/auto_buy_sell.js')
+      require('../js/sections/korbit/trading.js')
+    </script>
+
+  </section>
+</template>

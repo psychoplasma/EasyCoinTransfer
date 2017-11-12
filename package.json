@@ -1,0 +1,29 @@
+{
+  "name": "EasyCoinTransfer",
+  "version": "0.1.0",
+  "description": "Application for trading bitcoin easily",
+  "main": "./main.js",
+  "productName": "EasyCoinTransfer",
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "electron-json-storage": "^4.0.0",
+    "events": "^1.1.1",
+    "jquery": "^3.2.1",
+    "moment": "^2.18.1",
+    "node-notifier": "^5.1.2",
+    "node-schedule": "^1.2.1",
+    "request-promise": "^4.2.2",
+    "simple-node-logger": "^0.93.30"
+  },
+  "devDependencies": {
+    "electron": "^1.7.9",
+    "electron-packager": "^9.1.0",
+    "electron-winstaller": "^2.6.3"
+  },
+  "scripts": {
+    "start": "electron .",
+    "package-win": "electron-packager . EasyCoinTransfer --overwrite --asar=true --platform=win32 --arch=x64 --icon=assets/icons/win/icon.ico --prune=true --out=release-builds --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"EasyCoinTransfer\"",
+    "package-linux": "electron-packager . EasyCoinTransfer --overwrite --asar=true --platform=linux --arch=x64 --icon=assets/icons/icon.png --prune=true --out=release-builds",
+    "create-installer-win": "node installers/windows/createinstaller.js"
+  }
+}
