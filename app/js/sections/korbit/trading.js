@@ -23,9 +23,11 @@ let korbitClient = {}
 let isInitialized = false
 
 let capital = 0
+let startPrice = 0
 let algorithm = ""
 let margin = 0
 let currency = ""
+let safetyMargin = 0
 
 let lastOrderId
 
@@ -47,7 +49,6 @@ $(document).ready(() => {
     })
 })
 
-
 function uiStartState() {
 	$('#auto-buy-sell-start').prop("disabled", true)
 	$('#auto-buy-sell-stop').prop("disabled", false)
@@ -63,6 +64,8 @@ function getFormValues() {
     margin = parseFloat($('#auto-buy-sell-start-margin').val())
     algorithm = $('#algorithm').val()
 	currency = $('#currency').val()
+	startPrice = $('#start-price').val()
+	safetyMargin = $('#safety-margin').val()
 }
 
 function init(token) {
@@ -138,13 +141,11 @@ function initTradingBot() {
 				lastOrderId = 0
 			}
 		})
-        tradingBot.on('order-filled', (orderId) => {
-			removeOrderFromOrdersTable(orderId)
-            log.info(orderId + " order has been filled.")
+        tradingBot.on('order-filled', (trade) => {
+			removeOrderFromOrdersTable(trade.orderId)
+            log.info(trade.orderId + " order has been filled.")
+			log.info('You did' + trade.type + " at " + trade.price)
 		})
-        tradingBot.on('last-price', (trade) => {
-            log.info('You did' + trade.type + " at " + trade.price)
-        })
 
         log.info("Created a new StateMachine")
 	} catch(err) {
@@ -156,7 +157,9 @@ function startTradingBot() {
     let opts = {
         'symbol': resolveCurrencyPair(currency),
         'profit': margin,
-        'amount': capital,
+		'safety': safetyMargin,
+        'capital': capital,
+		'startPrice': startPrice,
         'fee': 0.0008,
         'interval': 3000,
 		'rounder': resolveRounder(currency)
@@ -186,15 +189,16 @@ function addOrderToOrdersTable(order) {
 
     orderIdCell.innerHTML = order.orderId
     dateCell.innerHTML = moment().format("YYYY-MM-DD HH:mm")
-    priceCell.innerHTML = parseFloat(order.price).toLocaleString("en-US", {minimumFractionDigits: 2}) + " USD"
-    quantityCell.innerHTML = parseFloat(order.amount).toFixed(5) + " " + tradingBot.symbol
+    priceCell.innerHTML = parseFloat(order.price).toLocaleString("en-US", {minimumFractionDigits: 2}) + " KRW"
+    quantityCell.innerHTML = parseFloat(order.amount).toFixed(5) + " " + resolveReverseCurrency(tradingBot.symbol)
     statusCell.innerHTML = order.status
-	typeCell.innerHTML = order.type
 
     if (order.type == "buy") {
+		typeCell.innerHTML = 'Buy'
         typeCell.style.color = "#3F9CD8"
         row.style.backgroundColor = "#F3FBFF"
     } else if (order.type == "sell") {
+		typeCell.innerHTML = 'Sell'
         typeCell.style.color = "#ED587A"
         row.style.backgroundColor = "#FFF4F1"
     } else {
@@ -224,6 +228,21 @@ function resolveCurrencyPair(currency) {
 			return CurrencyPair.ETC
 		case 'XRP':
 			return CurrencyPair.XRP
+	}
+}
+
+function resolveReverseCurrency(currencyPair) {
+	switch (currencyPair) {
+		case CurrencyPair.BTC:
+			return 'BTC'
+		case CurrencyPair.BCH:
+			return 'BCH'
+		case CurrencyPair.ETH:
+			return 'ETH'
+		case CurrencyPair.ETC:
+			return 'ETC'
+		case CurrencyPair.XRP:
+			return 'XRP'
 	}
 }
 

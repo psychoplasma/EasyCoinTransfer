@@ -28,12 +28,11 @@ const className = "StateMachine"
  * 'error', error
  * 'next-state', state
  * 'ticker', ticker
- * 'order-filled', orderId
+ * 'order-filled', {orderId, lastPrice, tradeType}
  * 'buy-success', orderId
  * 'sell-success', orderId
  * 'put-buy-order', order
  * 'put-sell-order', order
- * 'last-price', trade:{price, type}
  */
 class StateMachine extends EventEmitter {
     constructor(apiInterface) {
@@ -46,7 +45,9 @@ class StateMachine extends EventEmitter {
         // Private variables
         this.symbol = ""
         this.profitMargin = 0
+        this.safetyMargin = 0
         this.tradingFee = 0
+        this.startPrice = 0
         this.capital = 0
 		this.amount = 0
 		this.rounder = 0
@@ -73,7 +74,7 @@ class StateMachine extends EventEmitter {
 
     run() {
         this.__init()
-        this.start(State.BUY)
+        this.start(State.PUT_BUY_ORDER)
     }
 
     start(state = State.GET_TICKER) {
@@ -90,8 +91,10 @@ class StateMachine extends EventEmitter {
 	setOpt(opt) {
 		this.symbol = opt.symbol
         this.profitMargin = opt.profit
+        this.safetyMargin = opt.safety
         this.tradingFee = opt.fee
-        this.amount = opt.amount
+        this.startPrice = opt.startPrice
+        this.capital = opt.capital
 		this.rounder = opt.rounder
         this.interval = opt.interval
 	}
@@ -213,7 +216,7 @@ class StateMachine extends EventEmitter {
             .then((order /*order = {status, price, type, amount}*/) => {
                 if (order.status == OrderStatus.FILLED) {
 					// TODO: Adjust the amount according to fee deduction
-					this.capital = order.amount
+					//this.capital = order.amount
 					this.lastTradeType = order.type
 					this.lastTradePrice = order.price
 
@@ -225,8 +228,8 @@ class StateMachine extends EventEmitter {
 						this.state = State.PUT_SELL_ORDER
 					}
 
-					this.emit('last-price', {'price': order.price, 'type': order.type})
-					this.emit('order-filled', this.lastOrderId)
+					this.emit('order-filled',
+                        {'orderId': this.lastOrderId, 'price': order.price, 'type': order.type})
                 } else if (order.status == OrderStatus.PARTIALLY_FILLED || order.status == OrderStatus.OPEN) {
                     this.state = State.CHECK_ORDER_STATUS
 					this.emit('order-open', order)
@@ -258,6 +261,8 @@ class StateMachine extends EventEmitter {
 		        nextPrice = this.lastTradePrice * (1 + this.profitMargin + this.tradingFee * 2)
 				break
 		}
+
+        if (nextPrice == 0) nextPrice = this.startPrice
 
 		return helper.rounder(nextPrice, this.rounder).toFixed(0)
     }
