@@ -102,6 +102,11 @@ class StateMachine extends EventEmitter {
     //-------Private functions-------//
     __init() {
 		// Do initializations here
+        this.intervalId = 0
+        this.lastTradePrice = 0
+        this.lastTradeType = ""
+        this.lastOrderId = 0
+        this.error = ""
     }
 
     __stateExecutor() {
